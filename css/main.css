@@ -1,0 +1,673 @@
+/* css 문법만 사용 */
+@charset "UTF-8";
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+/* common */
+:root{
+   --point-color: #015feb;
+    /* 이런식으로 정의하고 main .quick_link_wrap li a:hover 참고 */
+   --event-color-orange: #e59166;
+   --point-color-dark: #00a3e6
+}
+body {
+   font-family: "Open Sans", "Nanum Gothic", MalgunGothic, "Apple SD Gothic", sans-serif; /* 미관상 영어폰트 앞에 두는게 낫다 */
+   font-size: 16px; color:#333 ;
+}
+button{
+   cursor: pointer;
+}
+.inner{
+   width: 1150px; margin: auto;
+}
+.screen_out{
+   display: block; overflow: hidden;
+   width: 0; height: 0;
+}
+.txt_dark_point{color: var(--point-color-dark) !important;}
+/* 이런식으로 우선순위를 땡긴다 */
+/* 정확하게 부모클래스까지 입력해도 우선순위가 높아지긴 하지만 너무 길어짐 */
+
+/* skip-nav */
+#skip_nav{}
+#skip_nav a{
+   position: fixed; /* 부모크기는 버리고 */
+   left: 0; top:-60px; right: 0;/* 포지션을 마음대로 준다 */
+   /* right 주면 쭉 늘리는거니 페이지 끝까지 늘어난다 */
+   background: orange; color: #fff; text-align: center;
+   line-height: 60px;
+}
+#skip_nav a:focus{
+   top: 0;
+}
+/* top banner */
+.top_banner_wrap{
+   position: relative;
+   background: var(--event-color-orange);
+
+}
+.top_banner_wrap .inner{
+   position: relative;
+}
+.top_banner_wrap a{
+   position: absolute;right: 16px;top: 14px; /* 포지션 기준이 top banner wrap inner */
+   width: 140px;height: 40px;
+   border-radius: 20px;
+}
+.top_banner_wrap .top_banner_close{
+   position: absolute; right: 50px; top: 50%;/* 포지션 기준이 top banner wrap */
+   width: 13px; height: 13px;
+   background-image: url(../img/ico_close_m.png);
+   transform: translateY(-50%); /* 이것도 가운데 공식 */
+}
+#wrap {
+   position: relative;
+}
+/* gotop버튼 */
+.btn_gotop{
+   position: fixed; right: 20px; bottom: 20px;
+   width: 49px;height: 50px;
+   background: url(../img/img_top.png) no-repeat center;
+}
+/* header */
+header {
+   display: flex; justify-content: space-between;
+   position: absolute; /* 1. 헤더와 메인비주얼이 겹쳐져야하기 때문에 준다 */
+   top: 20px;
+   left: 50%; transform: translateX(-50%); /* 가운데 옮기기 공식 */
+   padding: 20px; background: #fff;
+   width: 1150px; z-index: 900;
+   align-items: center; /* 배경 가운데에 텍스트 넣기 위해 */
+}
+header.fixed{
+   position: fixed; left: 0; right: 0; top: 0; width: auto;
+   z-index: 999;/* 헤더는 공지사항,이벤트보다 앞에 냅둬야한다 */
+   transform: translateX(0);
+   border-bottom: 1px solid #CCC;
+}
+header .header_left{
+   display: flex; gap: 30px;
+   align-items: center; /* 로고는 header left의 자손이라 가운데에 넣기위해 여기에 ailgn item을 준다 */
+}
+header h1 {
+
+}
+header h1 a {
+   display: block; /* a는 인라인이라 이미지 넣을때 면적이 확보가 안되서 (width,height 값을 먼저 주면 안됨) 블록으로 바꿔줘야한다 */
+   width: 80px; height: 14px;
+   background: url(../img/logo_new.png);
+}
+/* + 스크린 아웃은 위에 정리해둬서 쓸 필요 없다 */
+
+/* header nav{
+
+} */
+header nav ul{
+   /* display: flex; */
+
+}
+header nav #gnb {
+   display: flex;
+}
+header nav #gnb li{
+
+   padding-right: 40px;
+}
+header nav #gnb>li>a{
+   font-size: 18px; font-weight: 600;
+}
+header nav #gnb>li>a:hover{
+   color:var(--point-color)
+}
+
+header nav .dep2{
+   display: none;
+   position: absolute;
+   gap: 75px;
+   left: 0; right: 0; top: 64px;
+   padding: 20px 0 20px 130px; /* 투뎁스 정렬을 위해 */
+   background: rgba(220, 220, 220, 0.8);
+
+}
+header nav .dep2>li>a{
+
+   font-size: 18px;
+   font-weight: 600;
+   color: #333;
+}
+
+header nav .dep3{
+   margin-top: 20px; /* 뎁스2와 뎁스3의 간격 세팅 */
+   /* a는 인라인이라 마진 적용 안되서 뎁스3 클래스에게 준다. */
+}
+header nav .dep3>li{
+   margin-bottom: 10px ;
+   font-size: 14px;
+}
+
+
+
+header .util{
+   display: flex; gap: 20px;
+   font-size: 13px;
+}
+header .util a:hover{
+   text-decoration: underline;
+}
+
+/* util 사이사이의 선은 가상요소를 이용해서 만들고 선에 좌우 여백을 준다 */
+
+
+
+/* footer */
+footer {
+   padding-bottom: 70px; font-size: 14px;
+   background: #494949;
+   color: #c2c2c2;
+}
+footer::before {
+   content: "";display: block;
+   height: 4px; margin-bottom: 30px;
+   background: var(--point-color-dark) url(../img/bg_footline.png) no-repeat right center;
+}
+footer .inner{display: flex; justify-content: space-between;} /* footer 좌우배치하기위해 */
+
+
+
+/*footer left의 자식 ----------------------------------------------------------*/
+
+footer .footer_nav{ /* dt와 dd의 부모  */
+   display: flex; gap: 20px;
+   flex-wrap: wrap;
+   width: 350px; margin-bottom: 50px;
+}
+
+footer .footer_nav dt{color: #fff; width: 60px;}
+/* footer .footer_nav dd{} */
+
+footer .footer_menu{display: flex; gap: 24px; }
+footer .footer_menu a{color: #fff; font-weight: 500;}
+
+footer address{margin: 20px 0; font-size: 13px;}
+/* footer span{} */
+footer .copyright{font-size: 13px;}
+
+/* --------------------------------------------------------------------------- */
+
+
+
+
+/* footer right의 자식들 ------------------------------------------------------*/
+footer .footer_etc{display: flex; gap: 5px; margin-bottom: 60px; justify-content: flex-end;}
+
+footer .footer_etc .sns_link {display: flex; gap: 6px;} /* 2. 부모에게 플렉스 주면 자손은 자동으로 블록이 된다 */
+footer .footer_etc .sns_link a{width: 26px; height: 26px;} /* 1. 여기에 바로 블록을 주면 줄이 바뀜 */
+footer .footer_etc .sns_link img {width: 100%;} /* 부모를 따라가기 위해 */
+
+
+footer .familysite_wrap {position: relative; width: 140px; height: 26px; border: 1px solid #dedede; background: #FFF; color: #333; font-size: 13px;}
+
+footer .familysite_wrap button{
+   display: flex; align-items: center; justify-content: space-between; /* 아이콘 중앙 세팅 */
+   width: 100%; height: 100%;
+   text-align: left; /* default가 센터*/
+   padding: 0 10px;
+}
+footer .familysite_wrap button::after{
+   content: ""; width: 7px; height: 4px;
+   background: url(../img/bg_dropdown.png) no-repeat center;
+   transform: rotate(180deg);
+   transition: all 0.5s;
+}
+footer .familysite_wrap button.on::after{
+   transform: rotate(0); /* 달라지는 내용만 쓰고 transition 옵션 all 쓴다 */
+}
+
+footer .familysite_wrap ul{
+   position: absolute; /* 위로 올라갈거기 때문에 포지션 주고 부모인 familysite_wrap에게 relative  */
+
+   /* display: flex; flex-direction: column; gap: 5px; */ /* 글자 사이사이 띄우게 하기 위해 */
+   display: none;
+   left: 0px; right: 0px; /* 보더랑은 안겹치기 때문에 보더까지 겹치게 하기 위해서 -1 줄 때도 있다 */
+   bottom: 26px; /* 26px 위로.. */
+   padding: 5px 10px;
+   background: #fff; border: 1px solid #dedede;
+}
+/* 글자사이 띄우는 다른 방법 */
+footer .familysite_wrap li{
+   /* 첫번째 방법은 ul에 flex 시키고 정렬을 컬럼으로
+      두번째 방법은 li에 마진 : margin: 5px 0;
+      세번째 방법은 li에 line-height : line-height 1.7em*/
+      line-height: 1.7em;
+}
+/* ------------------------------------------------------------------------------------ */
+
+footer .familysite_wrap li:hover{
+   color: var(--point-color); text-decoration: underline;
+}
+
+footer .zoom{
+   display: flex; gap: 8px;
+   border: 1px solid #dedede;
+   width: 69px; height: 25px;
+   padding: 5px 10px;
+   background: #fff url(../img/ico_zoom_family.png) no-repeat center;
+}
+footer .zoom button{
+   width: 9px;height: 13px;
+}
+footer .zoom .zoom_reset{width: 17px;}
+
+footer .certfied_mark{
+   display: flex; flex-wrap: wrap; gap: 15px;
+   justify-content: flex-end;
+}
+footer .certfied_mark img{height: 74px;}
+footer .certfied_mark .isms-p{
+   display: flex; gap: 5px; align-items: center;
+   width: 290px; padding: 7px 5px;
+   margin-top: 20px;
+   background: #fff; border-radius: 3px;
+   color: #333; font-size: 11px;
+   letter-spacing: -1px;
+   line-height: 15px;
+}
+footer .certfied_mark .isms-p img{
+   height: 65px;
+}
+/* ---------------------------------------------------------------------------- */
+
+
+/* main - home/index */ /* ++ */ /* main visual */
+main {}
+
+/* Main Visual */
+main .main_visual_wrap {position: relative;}
+main .main_visual_swiper {
+   height: 537px;position: relative;
+}
+main .main_visual_swiper .swiper-slide {
+   background-repeat: no-repeat; background-position: center;
+}
+main .main_visual_swiper .swiper-slide .slide_inner {
+  width: 1150px;margin: auto;position: relative;
+}
+main .main_visual_swiper .slide1 {
+  background: pink;
+}
+main .main_visual_swiper .slide2 {
+  background-image: url(../img/main_visual_img_20231012_2024.png);
+  background-color: #F1F2F6;
+}
+main .main_visual_swiper .slide2 a {
+  display: block;width: 200px;height: 50px;
+  position: absolute;top: 350px;left: -7px;
+}
+main .main_visual_swiper .slide3 {
+  background-color: #F1F2F6;
+  background-image: url(../img/main_visual_img_20240104_machwp_bg.png);
+  background-position: calc(50% + 120px) center;
+  display: flex;align-items: center;
+}
+main .main_visual_swiper .slide3 p {margin-bottom: 12px;}
+main .main_visual_swiper .slide4 {
+  background-image: url(../img/main_visual_img_20230330_hancomdocs.png);
+  background-color: #0232ae;
+
+}
+main .main_visual_swiper .slide4 a {
+  display: block;width: 200px;height: 50px;
+  position: absolute;top: 336px;left: 0;border-radius: 30px;
+}
+main .main_visual_swiper .slide5 {
+  background-image: url(../img/main_visual_img_20230823_hancomsign.png);
+  background-color: #3169bf;
+}
+main .main_visual_swiper .slide5 .links_box {
+  display: flex;gap: 10px;
+  position: absolute;right: 0;top: 336px;
+}
+main .main_visual_swiper .slide5 a {
+  display: block;width: 200px;height: 50px;
+}
+main .main_visual_swiper .slide6 {
+  background-image: url(../img/main_visual_img_2023_developer.png);
+  background-color: #0a46ff;
+}
+main .main_visual_swiper .slide6 a {
+  display: block;width: 200px;height: 50px;
+  position: absolute;top: 336px;left: 0;border-radius: 30px;
+}
+main .main_visual_swiper .slide7 {
+  background-image: url(../img/main_visual_img6.png);
+  display: flex;align-items: center;
+}
+main .main_visual_swiper .slide7 strong {
+  color: #F7BD33;font-size: 48px;font-weight: 700;
+}
+main .main_visual_swiper .slide7 p:first-of-type {
+  margin: 28px 0 26px 0;color: #FFF;font-size: 20px;
+}
+main .main_visual_swiper .slide7 p:nth-of-type(2) {
+  margin-bottom: 36px;color: rgba(255,255,255,0.7);font-size: 14px;
+}
+main .main_visual_swiper .slide7 .links_box {
+  display: flex;gap: 10px;
+}
+main .main_visual_wrap .swiper-controls-wrap {
+  display: flex;justify-content: center;gap: 10px;
+  align-items: center;height: 40px;
+}
+
+main .main_visual_swiper .swiper-pagination {
+   display: flex;
+   position: static;width: auto;height: auto;
+}
+main .main_visual_swiper .swiper-pagination span {
+  width: 30px;height: 8px;background: silver;
+  border-radius: 3px;opacity: 1;
+}
+
+main .main_visual_swiper .swiper-pagination .swiper-pagination-bullet-active {
+  width: 60px;background: gray;
+}
+main .main_visual_swiper .swiper-controls {
+  display: flex;align-items: center;
+}
+main .main_visual_swiper .auto-play {
+   display: none; cursor: pointer;
+   border-width: 8px 0 8px 14px;
+   border-style: solid;border-color: transparent;
+   border-left-color: gray;
+}
+main .main_visual_swiper .auto-stop {
+  width: 12px;height: 16px;cursor: pointer;
+  border-left: 5px solid gray;border-right: 5px solid gray;
+}
+
+main .main_visual_wrap .info_wrap {
+  display: flex;justify-content: center;
+  position: absolute;left: 0;right: 0;bottom: 0;z-index: 1;
+  padding: 18px 0;background: rgba(0,0,0,.5);
+}
+main .main_visual_wrap .info_box {
+  display: flex;gap: 10px;padding: 16px;
+  position: relative;
+  background: #FFF;border-radius: 5px;
+}
+main .main_visual_wrap .info_box::before {
+  content: ""; position: absolute;left: 50%;top: 50%;
+  transform: translate(-50%, -50%);width: 1px;height: 18px;
+  background: #CCC;
+}
+main .main_visual_wrap .info_box a {
+  width: 330px;text-align: center;font-weight: 700;
+}
+main .main_visual_wrap .info_box .date {color: #0a56a9}
+
+
+
+main .main_visual_wrap .info_wrap{
+   display: flex; justify-content: center;
+   position: absolute; left: 0; right: 0; bottom: 0; z-index: 1;
+   padding: 18px 0;
+   background: rgba(0, 0, 0, 0.5);
+}
+main .main_visual_wrap .info_box{
+   position: relative; gap: 10px; padding: 16px;
+   display: flex;
+   border-radius: 5px;
+   background: #fff;
+}
+main .main_visual_wrap .info_box::before {
+   content: ""; position: absolute; width: 1px;height: 18px;
+   left: 50%; top: 50%;
+   transform: translate(-50%, -50%);
+   background: #dedede;
+}
+main .main_visual_wrap .info_box a{
+   width: 330px; font-weight: 700;
+   text-align: center;
+}
+main .main_visual_wrap .info_box .link_update{
+   color: #0a56a9;
+}
+
+
+/* 퀵메뉴 */
+main .quick_link_wrap {
+   padding: 65px 0;
+}
+main .quick_link_wrap ul{
+   display: flex;
+}
+main .quick_link_wrap li {
+   flex-grow: 1;
+}
+main .quick_link_wrap li a {
+   display: flex; flex-direction: column;
+   align-items: center;
+   width: 130px;
+   margin: auto; text-align: center;
+}
+main .quick_link_wrap li a:hover {
+   color:var(--point-color) /* 이런식으로 사용가능하다 */
+}
+main .quick_link_wrap li img{
+   width: 64px;height: 64px;
+   background-image: url(../img/bg_main_lnk.png); /* 투명 이미지.. */
+   margin-bottom: 5px;
+}
+
+main .quick_link_wrap li:nth-child(1) img{
+
+   background-position: -1px 0;
+}
+main .quick_link_wrap li:nth-child(2) img{
+
+   background-position: -1px -62px;
+}
+main .quick_link_wrap li:nth-child(3) img{
+
+   background-position: -1px -126px;
+}
+main .quick_link_wrap li:nth-child(4) img{
+   background-position: -1px -253px;
+}
+main .quick_link_wrap li:nth-child(5) img{
+   background-position: -1px -190px;
+
+}
+
+main .quick_link_wrap li:nth-child(1):hover img{
+
+   /* background-position: -65px 0; */ /* 이런식으로 가능은 하지만 */
+   background-position-x: -65px;
+    /* 이런식으로 x축만 바뀌는 경우에는 축약형 사용 안해도 된다. */
+}
+main .quick_link_wrap li:nth-child(2):hover img{
+
+   background-position: -65px -62px;
+}
+main .quick_link_wrap li:nth-child(3):hover img
+/* main .quick_link_wrap li:nth-child(3) img:hover */
+/* 이런식으로 두면 따로따로 된다 */{
+   background-position: -65px -126px;
+}
+main .quick_link_wrap li:nth-child(4):hover img{
+   background-position: -65px -253px;
+}
+main .quick_link_wrap li:nth-child(5):hover img{
+   background-position: -65px -190px;
+}
+
+
+
+
+/* 상품 소개 */
+main .pd_list_wrap {
+
+}
+main .pd_list_wrap ul {
+   display: flex;
+}
+main .pd_list_wrap li a{
+   display: block;height: 380px;
+   border: 1px solid #cecece;
+   background-size: contain;background-repeat: no-repeat;
+}
+main .pd_list_wrap li:nth-child(1) a{
+   background-image: url(../img/hancom_docs_out.png);
+}
+main .pd_list_wrap li:nth-child(1) a:hover{
+   background-image: url(../img/hancom_docs_over.png);
+}
+main .pd_list_wrap li:nth-child(2) a{
+   background-image: url(../img/hancom_office_out.png);
+}
+main .pd_list_wrap li:nth-child(2) a:hover{
+   background-image: url(../img/hancom_office_over.png);
+}
+main .pd_list_wrap li:nth-child(3) a{
+   background-image: url(../img/hancom_web_out.png);
+}
+main .pd_list_wrap li:nth-child(3) a:hover{
+   background-image: url(../img/hancom_web_over.png);
+}
+main .pd_list_wrap li:nth-child(4) a{
+   background-image: url(../img/hancom_docs_out.png);
+}
+main .pd_list_wrap li:nth-child(4) a:hover{
+   background-image: url(../img/hancom_docs_over.png);
+}
+main .pd_list_wrap li:nth-child(5) a{
+   background-image: url(../img/hancom_office_out.png);
+}
+main .pd_list_wrap li:nth-child(5) a:hover{
+   background-image: url(../img/hancom_office_over.png);
+}
+main .pd_list_wrap li:nth-child(6) a{
+   background-image: url(../img/hancom_web_out.png);
+}
+main .pd_list_wrap li:nth-child(6) a:hover{
+   background-image: url(../img/hancom_web_over.png);
+}
+
+/* 공지사항 & 이벤트 */
+main .board_wrap{
+   padding: 150px 0; /* 박스들과 떨어트리기 위해 */
+}
+main .board_wrap h2{
+   margin-bottom: 24px; /* 제목과 공지사항 내용 띄워놓기 위해 */
+   font-family: "Nanum Gothic", sans-serif;
+   font-size: 18px;
+   font-weight: 600;
+}
+main .board_wrap .inner{ /* display를 wrap가 아니라 직속 부모인 inner한테 줘야한다 */
+   display: grid;
+   grid-template-columns: 50% 50%; /* repeat(2,50%) */
+}
+main .board_wrap .notice_wrap{
+   padding-right: 24px; /* 텍스트 넘치는거 & + 버튼 같은거 보더와 떨어트리기 위해 */
+   position: relative;
+}
+
+/* 공지사항 리스트 부분 */
+main .board_wrap .notice_wrap ul{
+   display: flex; flex-direction: column; gap: 20px;
+   padding-top: 8px;
+   /* justify-content: space-between; */
+   /* 공지사항 리스트 사이사이에 여백 */
+   /* flex를 주고 기준을 세로로 바꾼다음에 gap를 준다 */
+   /* line height로 주지 않은 이유는 사이사이에 링크 면적이 넓어져서 사이를 클릭해도
+   링크로 연결이 되기 때문  */
+}
+
+main .board_wrap .notice_wrap li {
+   line-height: 1em; /* +로 여백 비율을 맞추기 위해 1em으로 초기화는 해준다 */
+}
+main .board_wrap .notice_wrap li:hover{text-decoration: underline;}
+
+main .board_wrap .notice_wrap li a {
+   display: flex; justify-content: space-between;
+   gap: 30px;
+/* span(공지사항,날짜)의 부모에게 flex주고 공지사항 텍스트와 날짜를 구분시킨다 */
+
+
+   /*  list 아이콘을 배경 이미지로 만들기 1번째 방법
+   padding-left: 15px;
+   background: url(../img/bg_dropdown.png) no-repeat 0 center; */
+}
+main .board_wrap .notice_wrap li a span:first-child {
+   /* 클래스를 안줘서 span의 첫번째 자손(공지사항 텍스트) 전체를 의미 */
+
+   overflow: hidden;
+   text-overflow: ellipsis; /* 텍스트 넘치는거 ...표시 시키기 */
+   white-space: nowrap;
+}
+/*  list 아이콘을 배경 이미지로 만들기 2번째 방법*/
+main .board_wrap .notice_wrap li span:first-child::before {
+   content: ""; width: 5px; height: 5px; background: dodgerblue;
+   display: inline-block; margin: -10px 5px 0 0;
+}
+
+main .board_wrap .notice_wrap li a span:last-child {
+   flex-shrink: 0;
+}
+main .board_wrap .notice_wrap .btn_more {
+   position: absolute; right: 24px; top: 8px;
+   /* notice wrap가 부모이기 때문에 부모에게 relative주고 */
+   /* 공지사항에서 +버튼 옮기기 */
+}
+
+/* 이벤트 리스트 부분 */
+main .board_wrap .event_wrap {
+   padding-left: 24px; /* 보더와 떨어트리기 위해 */
+   border-left: 1px solid #cecece; /* 이벤트와 공지사항 사이 줄 */
+
+}
+main .board_wrap .event_wrap .event_silde{
+   border: 1px solid #000;
+   position: relative; overflow: hidden;/* 2. 이게 이벤트 이미지 내부의 부모이니 여기에 relative */
+}
+main .board_wrap .event_wrap ul{
+  /*  display: flex; */
+   /* overflow: hidden; */ /* width: 550px; */
+   /* 넘쳐야 숨는것이기 때문에 부모의 width값을 한 이미지 크기로 바꿔준다 */
+
+}
+main .board_wrap .event_wrap li{
+
+   /* 창이 줄어들때 이미지 사이즈의 비율에 맞게 줄어들기 때문에 shrink 0을 줘서 줄어들지 않게 한다*/
+   width: 550px; flex-shrink: 0; /* 이미지 크기 조정 */
+}
+main .board_wrap .event_wrap li:first-child{
+   /* margin-left: -525px; */ /* 이런식으로 첫째 이미지의 면적을 옮겨주면 둘째 이미지까지 같이 따라오게 된다 */
+
+   /* 우선 사용하지 않는다.*/
+}
+main .board_wrap .event_wrap .event_controls_wrap{
+   /* 이벤트 이미지 오른쪽 위에 동그란 버튼 */
+   /* display: flex; gap: 10px; */ z-index: 100;
+   position: absolute; /* right: 10px; top: 10px; */ /* 1.이벤트 이미지 내부 버튼 포지션*/
+   /* border: 1px solid #000; */
+
+}
+main .board_wrap .event_wrap .event_controls_wrap span{
+   width: 12px;height: 12px;
+   border-radius: 6px; /* 어지간하면 1/2값 주기 */
+   background: rgba(255, 255, 255, 0.7);
+   box-shadow:  0 0 10px rgba(0, 0, 0, 0.5);
+   transition: width 0.5s;
+}
+
+main .board_wrap .event_wrap .event_controls_wrap .swiper-pagination-bullet-active{
+   width: 30px;
+}
+main .event_wrap .event_nav_btn {
+   display: flex; gap: 10px;
+   position: absolute; left: 0px; top: 0px; z-index: 100;
+}
+main .event_wrap .event_nav_btn button {
+   font-size: 50px; color: #fff; line-height: 1em;
+   text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
