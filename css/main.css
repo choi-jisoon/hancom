@@ -109,7 +109,6 @@ header nav #gnb {
    display: flex;
 }
 header nav #gnb li{
-
    padding-right: 40px;
 }
 header nav #gnb>li>a{
@@ -122,15 +121,14 @@ header nav #gnb>li>a:hover{
 header nav .dep2{
    display: none;
    position: absolute;
-   gap: 75px;
+   gap: 50px;
    left: 0; right: 0; top: 64px;
-   padding: 20px 0 20px 130px; /* 투뎁스 정렬을 위해 */
+   padding: 10px 0 10px 80px; /* 투뎁스 정렬을 위해 */
    background: rgba(220, 220, 220, 0.8);
-
+   height: 300px;
 }
 header nav .dep2>li>a{
-
-   font-size: 18px;
+   font-size: 16px;
    font-weight: 600;
    color: #333;
 }
@@ -289,73 +287,73 @@ main .main_visual_swiper .swiper-slide {
    background-repeat: no-repeat; background-position: center;
 }
 main .main_visual_swiper .swiper-slide .slide_inner {
-  width: 1150px;margin: auto;position: relative;
+   width: 1150px;margin: auto;position: relative;
 }
 main .main_visual_swiper .slide1 {
-  background: pink;
+   background: pink;
 }
 main .main_visual_swiper .slide2 {
-  background-image: url(../img/main_visual_img_20231012_2024.png);
-  background-color: #F1F2F6;
+   background-image: url(../img/main_visual_img_20231012_2024.png);
+   background-color: #F1F2F6;
 }
 main .main_visual_swiper .slide2 a {
-  display: block;width: 200px;height: 50px;
-  position: absolute;top: 350px;left: -7px;
+   display: block;width: 200px;height: 50px;
+   position: absolute;top: 350px;left: -7px;
 }
 main .main_visual_swiper .slide3 {
-  background-color: #F1F2F6;
-  background-image: url(../img/main_visual_img_20240104_machwp_bg.png);
-  background-position: calc(50% + 120px) center;
-  display: flex;align-items: center;
+   background-color: #F1F2F6;
+   background-image: url(../img/main_visual_img_20240104_machwp_bg.png);
+   background-position: calc(50% + 120px) center;
+   display: flex;align-items: center;
 }
 main .main_visual_swiper .slide3 p {margin-bottom: 12px;}
 main .main_visual_swiper .slide4 {
-  background-image: url(../img/main_visual_img_20230330_hancomdocs.png);
-  background-color: #0232ae;
+   background-image: url(../img/main_visual_img_20230330_hancomdocs.png);
+   background-color: #0232ae;
 
 }
 main .main_visual_swiper .slide4 a {
-  display: block;width: 200px;height: 50px;
-  position: absolute;top: 336px;left: 0;border-radius: 30px;
+   display: block;width: 200px;height: 50px;
+   position: absolute;top: 336px;left: 0;border-radius: 30px;
 }
 main .main_visual_swiper .slide5 {
-  background-image: url(../img/main_visual_img_20230823_hancomsign.png);
-  background-color: #3169bf;
+   background-image: url(../img/main_visual_img_20230823_hancomsign.png);
+   background-color: #3169bf;
 }
 main .main_visual_swiper .slide5 .links_box {
-  display: flex;gap: 10px;
-  position: absolute;right: 0;top: 336px;
+   display: flex;gap: 10px;
+   position: absolute;right: 0;top: 336px;
 }
 main .main_visual_swiper .slide5 a {
-  display: block;width: 200px;height: 50px;
+   display: block;width: 200px;height: 50px;
 }
 main .main_visual_swiper .slide6 {
-  background-image: url(../img/main_visual_img_2023_developer.png);
-  background-color: #0a46ff;
+   background-image: url(../img/main_visual_img_2023_developer.png);
+   background-color: #0a46ff;
 }
 main .main_visual_swiper .slide6 a {
-  display: block;width: 200px;height: 50px;
-  position: absolute;top: 336px;left: 0;border-radius: 30px;
+   display: block;width: 200px;height: 50px;
+   position: absolute;top: 336px;left: 0;border-radius: 30px;
 }
 main .main_visual_swiper .slide7 {
-  background-image: url(../img/main_visual_img6.png);
-  display: flex;align-items: center;
+   background-image: url(../img/main_visual_img6.png);
+   display: flex;align-items: center;
 }
 main .main_visual_swiper .slide7 strong {
-  color: #F7BD33;font-size: 48px;font-weight: 700;
+   color: #F7BD33;font-size: 48px;font-weight: 700;
 }
 main .main_visual_swiper .slide7 p:first-of-type {
-  margin: 28px 0 26px 0;color: #FFF;font-size: 20px;
+   margin: 28px 0 26px 0;color: #FFF;font-size: 20px;
 }
 main .main_visual_swiper .slide7 p:nth-of-type(2) {
-  margin-bottom: 36px;color: rgba(255,255,255,0.7);font-size: 14px;
+   margin-bottom: 36px;color: rgba(255,255,255,0.7);font-size: 14px;
 }
 main .main_visual_swiper .slide7 .links_box {
-  display: flex;gap: 10px;
+   display: flex;gap: 10px;
 }
 main .main_visual_wrap .swiper-controls-wrap {
-  display: flex;justify-content: center;gap: 10px;
-  align-items: center;height: 40px;
+   display: flex;justify-content: center;gap: 10px;
+   align-items: center;height: 40px;
 }
 
 main .main_visual_swiper .swiper-pagination {
@@ -363,15 +361,15 @@ main .main_visual_swiper .swiper-pagination {
    position: static;width: auto;height: auto;
 }
 main .main_visual_swiper .swiper-pagination span {
-  width: 30px;height: 8px;background: silver;
-  border-radius: 3px;opacity: 1;
+   width: 30px;height: 8px;background: silver;
+   border-radius: 3px;opacity: 1;
 }
 
 main .main_visual_swiper .swiper-pagination .swiper-pagination-bullet-active {
-  width: 60px;background: gray;
+   width: 60px;background: gray;
 }
 main .main_visual_swiper .swiper-controls {
-  display: flex;align-items: center;
+   display: flex;align-items: center;
 }
 main .main_visual_swiper .auto-play {
    display: none; cursor: pointer;
@@ -380,27 +378,27 @@ main .main_visual_swiper .auto-play {
    border-left-color: gray;
 }
 main .main_visual_swiper .auto-stop {
-  width: 12px;height: 16px;cursor: pointer;
-  border-left: 5px solid gray;border-right: 5px solid gray;
+   width: 12px;height: 16px;cursor: pointer;
+   border-left: 5px solid gray;border-right: 5px solid gray;
 }
 
 main .main_visual_wrap .info_wrap {
-  display: flex;justify-content: center;
-  position: absolute;left: 0;right: 0;bottom: 0;z-index: 1;
-  padding: 18px 0;background: rgba(0,0,0,.5);
+   display: flex;justify-content: center;
+   position: absolute;left: 0;right: 0;bottom: 0;z-index: 1;
+   padding: 18px 0;background: rgba(0,0,0,.5);
 }
 main .main_visual_wrap .info_box {
-  display: flex;gap: 10px;padding: 16px;
-  position: relative;
-  background: #FFF;border-radius: 5px;
+   display: flex;gap: 10px;padding: 16px;
+   position: relative;
+   background: #FFF;border-radius: 5px;
 }
 main .main_visual_wrap .info_box::before {
-  content: ""; position: absolute;left: 50%;top: 50%;
-  transform: translate(-50%, -50%);width: 1px;height: 18px;
-  background: #CCC;
+   content: ""; position: absolute;left: 50%;top: 50%;
+   transform: translate(-50%, -50%);width: 1px;height: 18px;
+   background: #CCC;
 }
 main .main_visual_wrap .info_box a {
-  width: 330px;text-align: center;font-weight: 700;
+   width: 330px;text-align: center;font-weight: 700;
 }
 main .main_visual_wrap .info_box .date {color: #0a56a9}
 
